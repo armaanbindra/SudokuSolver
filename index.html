@@ -1,0 +1,59 @@
+<html>
+<style>
+td
+{
+	height:30px;
+	width:30px;
+	border:solid blue 5px;
+	color:red;
+	font-family:futura;
+	text-align: center;
+}
+table
+{
+	 border-collapse: collapse;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table id="Sudoku" border="2"><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr></table>
+<script>
+
+
+function convertTableToArray()
+{
+var myTableArray = [];
+$("#Sudoku tr").each(function() {
+    var tableData = $(this).find('td');
+    if (tableData.length > 0) {
+        tableData.each(function() { 
+			var tempVal = $(this).text()
+			if(tempVal == "")
+				{
+					tempVal = '0';
+				}	
+			myTableArray.push(parseInt(tempVal)); 
+		
+		});
+    }
+});
+return myTableArray;
+}
+
+function loadArrayInTable(arr)
+{
+	var counter = -1;
+	$("#Sudoku tr").each(function() {
+		
+	    var tableData = $(this).find('td');
+	    if (tableData.length > 0) {
+	        tableData.each(function() { 
+				counter++;
+				$(this).html(arr[counter]); 
+			});
+	    }
+	});
+}
+
+</script>
+
+</html>
