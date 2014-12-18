@@ -49,4 +49,5 @@ rowToColumn([[X|Row]|Xs], [[X|Col]|Ys]) :-
 /*This is like the main function, the program reads in the puzzle and 
 calls the solve predicate to solve it an eventually write it out to output.txt*/
 start :- open('output.txt',write, Str),puzzle(Solution), solve(Solution),write(Str,Solution), halt.
+/*This is the puzzle dynamically written into the pl file through our web interface before it is executed*/
 puzzle([[_,2,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,2,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_],[_,_,_,_,_,_,_,_,_]]).
