@@ -17,11 +17,12 @@ def createEmptyPuzzle():
 def createHTMLTable():
     ans = "<table id=\"Sudoku\" border=\"2\">"
     for i in range(9):
-        ans+="<tr>"
+        ans+="<tr id='row"+str(i)+"'>"
         for i in range(9):
-            ans+="<td contentEditable='true'>0</td>"
+            ans+="<td class='col"+str(i)+"' contentEditable='true'></td>"
         ans+="</tr>"
     ans+="</table>"
     return ans
     
-            
+
+    

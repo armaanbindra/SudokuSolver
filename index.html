@@ -1,23 +1,26 @@
 <html>
-<style>
-td
-{
-	height:30px;
-	width:30px;
-	border:solid blue 5px;
-	color:red;
-	font-family:futura;
-	text-align: center;
-}
-table
-{
-	 border-collapse: collapse;
-}
-</style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<table id="Sudoku" border="2"><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr><tr><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td><td contentEditable='true'></td></tr></table>
-<script>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<scirpt src = "http://www.fourthwoods.com/sudoku.js"></scirpt>
+<link rel="stylesheet" href="home.css" type="text/css" />
+<center>
+<body onload="checkValidation();">
+<div id="container">
+    <h2>SUDOKU SOLVER</h2>
+</div>
+<h2><span class="names">
+<br>Armaan Bindra, Guanlun Mu and Stephen Akers</span></h2>
+<div id="errorMessage"></div>
+<progress id="myProgress" value="0" max="100">
+</progress>
+<table id="Sudoku" border="2"><tr id='row0'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row1'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row2'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row3'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row4'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row5'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row6'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row7'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr><tr id='row8'><td class='col0' contentEditable='true'></td><td class='col1' contentEditable='true'></td><td class='col2' contentEditable='true'></td><td class='col3' contentEditable='true'></td><td class='col4' contentEditable='true'></td><td class='col5' contentEditable='true'></td><td class='col6' contentEditable='true'></td><td class='col7' contentEditable='true'></td><td class='col8' contentEditable='true'></td></tr></table>
+<button id = "solveIt">Solve It! </button>
+<button id = "empty">Empty Table</button>
+</center>
+</body>
+<script>
+var progress = 0;
+var timer = 0;
 
 function convertTableToArray()
 {
@@ -27,7 +30,7 @@ $("#Sudoku tr").each(function() {
     if (tableData.length > 0) {
         tableData.each(function() { 
 			var tempVal = $(this).text()
-			if(tempVal == "")
+			if(tempVal === "")
 				{
 					tempVal = '0';
 				}	
@@ -36,8 +39,58 @@ $("#Sudoku tr").each(function() {
 		});
     }
 });
-return myTableArray;
+var finalArray = [];
+while(myTableArray.length) {
+      finalArray.push(myTableArray.splice(0,9));
 }
+var ans = JSON.stringify(finalArray);
+
+return ans.replace(/0/g, "_");
+
+}
+
+
+$("#solveIt").click(function()
+{
+  console.log("solveIt clicked");
+   timer = 0;
+   progress = 0;
+   var timer = setInterval(updateProgressbar, 200);
+   $("#myProgress").val(progress.toString());
+  var puzzle = convertTableToArray();    
+  $.ajax({
+  xhr: function()
+  {
+    var xhr = new window.XMLHttpRequest();
+    //Upload progress
+    xhr.upload.addEventListener("progress", function(evt){
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+      }
+    }, false);
+    //Download progress
+    xhr.addEventListener("progress", function(evt){
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+      }
+    }, false);
+    return xhr;
+  },
+  type: 'POST',
+  url: "fileIO.php",
+  data: {sudokuPuzzle:puzzle},
+  success: function(data){
+    //Do something success-ish
+    progress = 100;
+    $("#errorMessage").html("Puzzle Solved");
+    loadArrayInTable(data.split(','));
+  }
+});
+});
+
+$("#empty").click(function () {
+   loadArrayInTable(['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','']); 
+});
 
 function loadArrayInTable(arr)
 {
@@ -48,10 +101,34 @@ function loadArrayInTable(arr)
 	    if (tableData.length > 0) {
 	        tableData.each(function() { 
 				counter++;
-				$(this).html(arr[counter]); 
+				$(this).html(arr[counter].toString()); 
 			});
 	    }
 	});
+}
+
+function checkValidation() {
+    var table = document.getElementById("Sudoku");
+    var tableEle = Array.prototype.slice.call(table.tBodies[0].childNodes);
+    tableEle.forEach(function(elt) { 
+        var tds = Array.prototype.slice.call(elt.childNodes);
+        tds.forEach(function(tdsElt) {
+            tdsElt.addEventListener("keypress", function(e){
+               if (tdsElt.innerHTML.length === 1 )
+                   e.preventDefault();
+                else if(isNaN(String.fromCharCode(e.charCode)))
+                    tdsElt.innerHTML = "";
+            });
+        });
+    });
+    
+}
+
+
+
+function updateProgressbar(){
+    $("#myProgress").val((++progress).toString());
+    if(progress == 100){clearInterval(timer)};
 }
 
 </script>
